@@ -1,0 +1,9 @@
+<div class='progress-container'>
+      <div *ngFor='let result of progress.progressArray; let i = index' 
+            class='progress-item' 
+            [class.right-answer]="result === 1" 
+            [class.wrong-answer]="result === -1"
+            [class.not-given-answer]="result === 0"
+            [class.current-answer]="i === progress.currentItem">
+      </div>
+</div>

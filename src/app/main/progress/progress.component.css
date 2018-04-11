@@ -1,0 +1,28 @@
+.progress-item {
+    height: 3px;
+    min-width: 10px;
+    margin: 1px;
+}
+
+.progress-container {
+    margin: 2px -10px 2px -5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.right-answer {
+    background-color: forestgreen;
+}
+
+.wrong-answer {
+    background-color: red;
+}
+
+.not-given-answer {
+    background-color: lightgray;
+}
+
+.current-answer {
+    background-color: goldenrod !important; 
+}

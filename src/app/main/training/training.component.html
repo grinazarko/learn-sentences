@@ -1,0 +1,56 @@
+<nav class="navbar navbar-light bg-info">
+  <a class="navbar-item" href="#"><fa name="angle-left"></fa>Lesson {{lessonNumber}}</a>
+  <div class="navbar-item">
+      Current: {{currentRight}}
+  </div>
+  <div class="navbar-item">
+      Goal: {{goalRight}}
+  </div>
+</nav>
+<div class='container traininig-container'>
+  <div class='row translate-sentence-row'>
+    <div class='col col-sm'>{{sentence?.translate}}</div>
+  </div>
+  <div class='row built-sentence-row'>
+    <div class='col col-sm' [class.wrong-built]="status === 'wrong'" [class.right-built]="status === 'right'">
+      {{builtSentence}}
+    </div>
+  </div>
+  <div *ngIf='status === undefined' class='blocks-container'>
+    <div class='row block-row'>
+      <div class='col-6 col-sm-6 word-container' (click)='chooseWord(wordsForSelect[0])'>{{wordsForSelect[0]}}</div>
+      <div class='col-6 col-sm-6 word-container' (click)='chooseWord(wordsForSelect[1])'>{{wordsForSelect[1]}}</div>
+    </div>
+    <div class='row block-row'>  
+      <div class='col-6 col-sm-6 word-container' (click)='chooseWord(wordsForSelect[2])'>{{wordsForSelect[2]}}</div>
+      <div class='col-6 col-sm-6 word-container' (click)='chooseWord(wordsForSelect[3])'>{{wordsForSelect[3]}}</div>
+    </div>
+    <div class='row block-row'>    
+      <div class='col-6 col-sm-6 word-container' (click)='chooseWord(wordsForSelect[4])'>{{wordsForSelect[4]}}</div>
+      <div class='col-6 col-sm-6 word-container' (click)='chooseWord(wordsForSelect[5])'>{{wordsForSelect[5]}}</div>
+    </div>
+    <div class='row block-row'>   
+      <div class='col-6 col-sm-6 word-container' (click)='chooseWord(wordsForSelect[6])'>{{wordsForSelect[6]}}</div>
+      <div class='col-6 col-sm-6 word-container' (click)='chooseWord(wordsForSelect[7])'>{{wordsForSelect[7]}}</div>
+    </div>
+  </div>
+  <div *ngIf='status === "right"' (click)='getNextSentence()' class='result-block'>
+    <div class='wrong-result-block'>
+        Right! Go next!
+    </div>
+  </div>  
+  <div *ngIf='status === "wrong"' (click)='getNextSentence()'  class='result-block'>
+    <div class='row translate-sentence-row'>
+      <div class='col col-sm'>{{sentence?.value}}</div>
+    </div>
+    <div class='wrong-result-block'>
+      Sorry! Try Again!
+    </div>
+  </div>
+  <app-progress [(progress)] = 'progress'></app-progress>
+</div>
+<nav class="navbar navbar-light  bg-info footer">
+  <div class="navbar-item" (click)='setNewSentence(sentence)'>
+      <fa name="undo"></fa>
+  </div>
+</nav>

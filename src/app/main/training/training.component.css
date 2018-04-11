@@ -1,0 +1,71 @@
+.word-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.traininig-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 100px);
+}
+
+.navbar {
+    height: 50px;
+}
+
+.word-container:active {
+    background-color: #17a2b8;
+}
+
+.built-sentence-row {
+    margin-top: 5px; 
+    min-height: 25px;
+    color: gray;
+}
+
+.translate-sentence-row {
+    margin-top: 5px;
+    min-height: 25px;
+}
+
+.blocks-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.block-row {
+    flex-grow: 1; 
+}
+
+.result-block {
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+}
+
+.wrong-result-block {
+    flex-grow: 1; 
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+}
+
+.wrong-built {
+    color: red;
+}
+
+.right-built {
+    color: green;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+}
+
+.navbar-item {
+    font-size: 16px;
+    color: white;
+}
