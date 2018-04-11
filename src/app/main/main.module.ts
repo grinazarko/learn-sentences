@@ -13,7 +13,7 @@ import { ProgressService } from './services/progress.service';
   imports: [
     CommonModule,
     MainRoutingModule,
-    AngularFontAwesomeModule, 
+    AngularFontAwesomeModule,
     HttpClientModule
   ],
   declarations: [TrainingComponent, ProgressComponent],

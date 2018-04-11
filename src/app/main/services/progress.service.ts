@@ -3,32 +3,32 @@ import { Progress } from '../models/progress';
 
 @Injectable()
 export class ProgressService {
-  private numberOfResults: number = 24;
+  private numberOfResults = 24;
   private progresses: any;
 
   constructor() {
-    let localStorageProgress = localStorage.getItem('progress');
+    const localStorageProgress = localStorage.getItem('progress');
     if (localStorageProgress !== 'undefined') {
       this.progresses = JSON.parse(localStorageProgress);
     } else {
-      this.progresses = { 
+      this.progresses = {
         1:
         {
           currentItem: 0,
-          progressArray: Array.apply(null, Array(this.numberOfResults)).map(Number.prototype.valueOf,0)
+          progressArray: Array.apply(null, Array(this.numberOfResults)).map(Number.prototype.valueOf, 0)
         },
         2:
         {
           currentItem: 0,
-          progressArray: Array.apply(null, Array(this.numberOfResults)).map(Number.prototype.valueOf,0)
+          progressArray: Array.apply(null, Array(this.numberOfResults)).map(Number.prototype.valueOf, 0)
         }
-      }
+      };
       localStorage.setItem('progress', JSON.stringify(this.progresses));
     }
   }
 
-  setResultAndGetProgress(lessonNumber, result):Progress {
-    let progress = this.progresses[lessonNumber];
+  setResultAndGetProgress(lessonNumber, result): Progress {
+    const progress = this.progresses[lessonNumber];
     progress.progressArray[progress.currentItem] = result;
     progress.currentItem += 1;
     if (progress.currentItem === progress.progressArray.length) {

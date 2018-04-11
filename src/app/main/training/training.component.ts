@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Sentence } from '../models/sentence';
-import { SentecesService } from '../services/senteces.service'
+import { SentecesService } from '../services/senteces.service';
 import { ProgressService } from '../services/progress.service';
 import { Progress } from '../models/progress';
 
@@ -12,17 +12,17 @@ import { Progress } from '../models/progress';
 export class TrainingComponent implements OnInit {
   currentRight: number;
   goalRight: number;
-  lessonNumber: number = 1;
-  numberOfBlocks: number = 8;
+  lessonNumber = 1;
+  numberOfBlocks = 8;
   wordsForSelect: string[] = [];
   sentence: Sentence;
   progress: Progress;
-  builtSentence: string = '';
+  builtSentence = '';
   wholeSplittedSentence: string[];
   restSplittedSentence: string[];
   status: string;
 
-  constructor(private sentensesService: SentecesService, private progressService: ProgressService) { 
+  constructor(private sentensesService: SentecesService, private progressService: ProgressService) {
     this.progress = this.progressService.getCurrentProgress(this.lessonNumber);
     this.goalRight = Math.round(this.progress.progressArray.length * 0.95 - 1);
     this.currentRight = this.progress.progressArray.filter(item => item === 1).length;
@@ -31,7 +31,7 @@ export class TrainingComponent implements OnInit {
   ngOnInit() {
     this.sentensesService.getSentence(this.lessonNumber).subscribe(sentence => {
       this.setNewSentence(sentence);
-    })
+    });
   }
 
   setNewSentence(sentence: Sentence) {
@@ -49,7 +49,7 @@ export class TrainingComponent implements OnInit {
     } else if (this.wholeSplittedSentence.length > this.numberOfBlocks) {
       this.wordsForSelect = this.wholeSplittedSentence.slice(0, this.numberOfBlocks);
     } else if (this.wholeSplittedSentence.length < this.numberOfBlocks) {
-      let randomRest = [];
+      const randomRest = [];
       for (let i = 0; i < this.numberOfBlocks - this.wholeSplittedSentence.length; i++) {
         randomRest.push(this.sentensesService.getRandomWord());
       }
@@ -81,7 +81,7 @@ export class TrainingComponent implements OnInit {
     if (this.builtSentence.split(' ').length === this.wholeSplittedSentence.length) {
       this.builtSentence = this.builtSentence + this.sentence.value.slice(-1);
       this.checkIfRight();
-    } 
+    }
   }
 
   checkIfRight() {
@@ -89,7 +89,7 @@ export class TrainingComponent implements OnInit {
       this.status = 'right';
       this.progress = this.progressService.setResultAndGetProgress(this.lessonNumber, 1);
       if (this.currentRight === this.goalRight) {
-        alert('Good job! You can go start lesson!')
+        alert('Good job! You can go start lesson!');
       }
     } else {
       this.status = 'wrong';
@@ -104,7 +104,7 @@ export class TrainingComponent implements OnInit {
     } else if (this.status === 'right') {
       this.sentensesService.getSentence(this.lessonNumber).subscribe(sentence => {
         this.setNewSentence(sentence);
-      })
+      });
     }
   }
 }
