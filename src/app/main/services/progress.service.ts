@@ -8,7 +8,7 @@ export class ProgressService {
 
   constructor() {
     const localStorageProgress = localStorage.getItem('progress');
-    if (localStorageProgress !== 'undefined' && localStorageProgress !== 'null') {
+    if (localStorageProgress !== 'undefined' && localStorageProgress !== 'null' && localStorageProgress !== null) {
       this.progresses = JSON.parse(localStorageProgress);
     } else {
       this.progresses = {
