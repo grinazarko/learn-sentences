@@ -25,6 +25,7 @@ export class ProgressService {
       };
       window.localStorage.setItem('progress', JSON.stringify(this.progresses));
     }
+    console.log('foo', this.progresses, localStorageProgress);
   }
 
   setResultAndGetProgress(lessonNumber, result): Progress {
