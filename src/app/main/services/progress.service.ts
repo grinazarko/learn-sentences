@@ -7,7 +7,7 @@ export class ProgressService {
   private progresses: any;
 
   constructor() {
-    const localStorageProgress = localStorage.getItem('progress');
+    const localStorageProgress = window.localStorage.getItem('progress');
     if (localStorageProgress !== 'undefined') {
       this.progresses = JSON.parse(localStorageProgress);
     } else {
@@ -23,7 +23,7 @@ export class ProgressService {
           progressArray: Array.apply(null, Array(this.numberOfResults)).map(Number.prototype.valueOf, 0)
         }
       };
-      localStorage.setItem('progress', JSON.stringify(this.progresses));
+      window.localStorage.setItem('progress', JSON.stringify(this.progresses));
     }
   }
 
@@ -34,7 +34,7 @@ export class ProgressService {
     if (progress.currentItem === progress.progressArray.length) {
       progress.currentItem = 0;
     }
-    localStorage.setItem('progress', JSON.stringify(this.progresses));
+    window.localStorage.setItem('progress', JSON.stringify(this.progresses));
     return progress;
   }
 
@@ -43,7 +43,7 @@ export class ProgressService {
   }
 
   resetResult() {
-    localStorage.setItem('progress', undefined);
+    window.localStorage.setItem('progress', undefined);
   }
 
 }
