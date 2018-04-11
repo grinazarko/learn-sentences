@@ -8,7 +8,7 @@ export class ProgressService {
 
   constructor() {
     const localStorageProgress = window.localStorage.getItem('progress');
-    if (localStorageProgress !== 'undefined') {
+    if (localStorageProgress !== 'null') {
       this.progresses = JSON.parse(localStorageProgress);
     } else {
       this.progresses = {
@@ -43,7 +43,7 @@ export class ProgressService {
   }
 
   resetResult() {
-    window.localStorage.setItem('progress', undefined);
+    window.localStorage.setItem('progress', null);
   }
 
 }
