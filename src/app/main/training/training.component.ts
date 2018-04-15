@@ -95,6 +95,8 @@ export class TrainingComponent implements OnInit {
       this.progress = this.progressService.setResultAndGetProgress(this.lessonNumber, 1);
       if (this.currentRight === this.goalRight) {
         alert('Good job! You can go start lesson!');
+      } else {
+        setTimeout(this.getNextSentence.bind(this), 1000);
       }
     } else {
       this.status = 'wrong';

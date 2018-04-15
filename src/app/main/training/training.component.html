@@ -34,17 +34,17 @@
       <div class='col-6 col-sm-6 word-container' (click)='chooseWord(wordsForSelect[7])'>{{wordsForSelect[7]}}</div>
     </div>
   </div>
-  <div *ngIf='status === "right"' (click)='getNextSentence()' class='result-block'>
+  <div *ngIf='status === "right"' class='result-block'>
     <div class='wrong-result-block'>
-        Right! Go next!
+        <button type="button" class="btn btn-success" (click)='getNextSentence()'>Right! Go next!</button>
     </div>
   </div>  
-  <div *ngIf='status === "wrong"' (click)='getNextSentence()'  class='result-block'>
+  <div *ngIf='status === "wrong"' class='result-block'>
     <div class='row translate-sentence-row'>
       <div class='col col-sm'>{{sentence?.value}}</div>
     </div>
     <div class='wrong-result-block'>
-      Sorry! Try Again!
+        <button type="button" class="btn btn-danger" (click)='getNextSentence()'>Sorry! Try Again!</button>
     </div>
   </div>
   <app-progress [(progress)] = 'progress'></app-progress>
