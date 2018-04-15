@@ -1,6 +1,12 @@
 # LearnSentences
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.6.
+LearnSentences is the web application for learning how to build sentences in any language, default - building english sentences with russian translate. 
+
+You can see demo here https://grinazarko.github.io/learn-sentences/training. Most suitable for touch interface and mobile display.
+
+## Usage
+
+Choose the lesson and build sentences. To pass the lesson you have to score goal points. If you made a mistake you can correct it and get point only on the next lap.
 
 ## Development server
 
