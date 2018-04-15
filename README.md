@@ -2,7 +2,7 @@
 
 LearnSentences is the web application for learning how to build sentences in any language, default - building english sentences with russian translate. 
 
-You can see demo here https://grinazarko.github.io/learn-sentences/training. Most suitable for touch interface and mobile display.
+You can see demo here https://grinazarko.github.io/learn-sentences. Most suitable for touch interface and mobile display.
 
 ## Usage
 
