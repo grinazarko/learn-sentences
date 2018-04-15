@@ -8,6 +8,8 @@ import { TrainingComponent } from './training/training.component';
 import { SentecesService } from './services/senteces.service';
 import { ProgressComponent } from './progress/progress.component';
 import { ProgressService } from './services/progress.service';
+import { LessonsService } from './services/lessons.service';
+import { LessonsComponent } from './lessons/lessons.component';
 
 @NgModule({
   imports: [
@@ -16,10 +18,15 @@ import { ProgressService } from './services/progress.service';
     AngularFontAwesomeModule,
     HttpClientModule
   ],
-  declarations: [TrainingComponent, ProgressComponent],
+  declarations: [
+    TrainingComponent, 
+    ProgressComponent, 
+    LessonsComponent
+  ],
   providers: [
     SentecesService,
-    ProgressService
+    ProgressService,
+    LessonsService
   ]
 })
 export class MainModule { }

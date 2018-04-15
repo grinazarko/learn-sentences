@@ -1,0 +1,30 @@
+.lessons-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 100px);
+}
+
+.navbar {
+    height: 50px;
+}
+
+.navbar-item {
+    font-size: 16px;
+    color: white;
+}
+
+.lesson-row {
+    height: 50px;
+    font-size: 16px;
+    border-bottom: 1px solid black;
+}
+
+.footer, .header {
+    display: flex;
+    justify-content: space-around;
+}
+
+.lesson-title {
+    display: flex;
+    align-items: center;
+}

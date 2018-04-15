@@ -3,6 +3,7 @@ import { Sentence } from '../models/sentence';
 import { SentecesService } from '../services/senteces.service';
 import { ProgressService } from '../services/progress.service';
 import { Progress } from '../models/progress';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-training',
@@ -12,8 +13,8 @@ import { Progress } from '../models/progress';
 export class TrainingComponent implements OnInit {
   currentRight: number;
   goalRight: number;
-  lessonNumber = 1;
-  numberOfBlocks = 8;
+  lessonNumber: number;
+  numberOfBlocks: number = 8;
   wordsForSelect: string[] = [];
   sentence: Sentence;
   progress: Progress;
@@ -22,7 +23,10 @@ export class TrainingComponent implements OnInit {
   restSplittedSentence: string[];
   status: string;
 
-  constructor(private sentensesService: SentecesService, private progressService: ProgressService) {
+  constructor(private sentensesService: SentecesService, 
+              private progressService: ProgressService, 
+              private route: ActivatedRoute) {
+    this.lessonNumber = parseInt(route.snapshot.paramMap.get('id'));
     this.progress = this.progressService.getCurrentProgress(this.lessonNumber);
     this.goalRight = Math.round(this.progress.progressArray.length * 0.95 - 1);
     this.currentRight = this.progress.progressArray.filter(item => item === 1).length;
@@ -34,7 +38,7 @@ export class TrainingComponent implements OnInit {
     });
   }
 
-  setNewSentence(sentence: Sentence) {
+  setNewSentence(sentence: Sentence): void {
     this.status = undefined;
     this.builtSentence = '';
     this.sentence = sentence;
@@ -43,7 +47,7 @@ export class TrainingComponent implements OnInit {
     this.generateInitialWordsArray();
   }
 
-  generateInitialWordsArray() {
+  generateInitialWordsArray(): void {
     if (this.wholeSplittedSentence.length === this.numberOfBlocks) {
       this.wordsForSelect = this.wholeSplittedSentence;
     } else if (this.wholeSplittedSentence.length > this.numberOfBlocks) {
@@ -58,7 +62,7 @@ export class TrainingComponent implements OnInit {
     this.wordsForSelect = this.shuffleArray(this.wordsForSelect);
   }
 
-  shuffleArray(a) {
+  shuffleArray(a: Array<any>): Array<any> {
     for (let i = a.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [a[i], a[j]] = [a[j], a[i]];
@@ -66,7 +70,7 @@ export class TrainingComponent implements OnInit {
     return a;
   }
 
-  chooseWord(word) {
+  chooseWord(word: string): void {
     if (this.builtSentence) {
       this.builtSentence = `${this.builtSentence} ${word}`;
     } else {
@@ -84,7 +88,7 @@ export class TrainingComponent implements OnInit {
     }
   }
 
-  checkIfRight() {
+  checkIfRight(): void {
     if (this.builtSentence === this.sentence.value) {
       this.status = 'right';
       this.progress = this.progressService.setResultAndGetProgress(this.lessonNumber, 1);
@@ -98,7 +102,7 @@ export class TrainingComponent implements OnInit {
     this.currentRight = this.progress.progressArray.filter(item => item === 1).length;
   }
 
-  getNextSentence() {
+  getNextSentence(): void {
     if (this.status === 'wrong') {
       this.setNewSentence(this.sentence);
     } else if (this.status === 'right') {

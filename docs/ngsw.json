@@ -9,8 +9,8 @@
       "urls": [
         "https://grinazarko.github.io/learn-sentences/favicon.ico",
         "https://grinazarko.github.io/learn-sentences/index.html",
-        "https://grinazarko.github.io/learn-sentences/inline.15076ebb1ae7edb746e9.bundle.js",
-        "https://grinazarko.github.io/learn-sentences/main.d2c3792085ec1f4c3f12.bundle.js",
+        "https://grinazarko.github.io/learn-sentences/inline.c930e52b3f3c3daa5ecd.bundle.js",
+        "https://grinazarko.github.io/learn-sentences/main.41f68772278dc45d56a8.bundle.js",
         "https://grinazarko.github.io/learn-sentences/polyfills.46af3f84a403e219371b.bundle.js",
         "https://grinazarko.github.io/learn-sentences/styles.5b085b98a7ca3ebaec29.bundle.css"
       ],
@@ -29,13 +29,13 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "https://grinazarko.github.io/learn-sentences/inline.15076ebb1ae7edb746e9.bundle.js": "ce756f66d37b198e3205382a18657cb3938b9760",
+    "https://grinazarko.github.io/learn-sentences/inline.c930e52b3f3c3daa5ecd.bundle.js": "79401c9372b3beb36da93a7bc8e98659ba02e961",
     "https://grinazarko.github.io/learn-sentences/assets/randomWords.json": "7efeedb1cdd3e5b11f19d44e67b25dd0b33320f4",
-    "https://grinazarko.github.io/learn-sentences/main.d2c3792085ec1f4c3f12.bundle.js": "6c509cf0b6727d142549fe620368c0275e51ce57",
+    "https://grinazarko.github.io/learn-sentences/main.41f68772278dc45d56a8.bundle.js": "1f70b621da4dc37330cd3350dd77d29c2c6a04a9",
     "https://grinazarko.github.io/learn-sentences/assets/sentences1.json": "0027aa8554bbab33b4d9cee30c9d314c7ce0a93c",
     "https://grinazarko.github.io/learn-sentences/polyfills.46af3f84a403e219371b.bundle.js": "2433a5447fd85f5a3e010ff9c5fd06cfb2c8ddcd",
     "https://grinazarko.github.io/learn-sentences/styles.5b085b98a7ca3ebaec29.bundle.css": "1d8af68e9a24b8ef6f196f3e38962c408c69e7ce",
     "https://grinazarko.github.io/learn-sentences/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "https://grinazarko.github.io/learn-sentences/index.html": "3c59465981017c18f390ee7e2819305ad63faed4"
+    "https://grinazarko.github.io/learn-sentences/index.html": "6ec10ea93ba71740fe74e683ba42dcff56e2e04f"
   }
 }

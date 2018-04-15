@@ -1,0 +1,17 @@
+<nav class="navbar navbar-light bg-info header">
+  <div class="navbar-item">
+      Learn sentences
+  </div>
+</nav>
+<div class='container lessons-container'>
+  <div class='row lesson-row' *ngFor='let lesson of lessons' (click)='openLesson(lesson)'>
+    <div class='col col-sm lesson-title'>Lesson {{lesson.id}}
+      <fa name="angle-right" style='margin-left:auto;'></fa>
+    </div>
+  </div>
+</div>
+<nav class="navbar navbar-light  bg-info footer">
+  <div class="navbar-item" (click)='resetProgress()'>
+      Reset progress
+  </div>
+</nav>

@@ -16,7 +16,7 @@ export class SentecesService {
     return this.http.get<string[]>(`./assets/randomWords.json`);
   }
 
-  getSentence(lessonNumber): Observable<Sentence> {
+  getSentence(lessonNumber: number): Observable<Sentence> {
     return this.http.get<Sentence[]>(`./assets/sentences${lessonNumber}.json`)
     .map(sentences => sentences[Math.floor(Math.random() * sentences.length)]);
   }
