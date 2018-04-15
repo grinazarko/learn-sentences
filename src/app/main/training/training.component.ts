@@ -3,7 +3,7 @@ import { Sentence } from '../models/sentence';
 import { SentecesService } from '../services/senteces.service';
 import { ProgressService } from '../services/progress.service';
 import { Progress } from '../models/progress';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-training',
@@ -25,7 +25,8 @@ export class TrainingComponent implements OnInit {
 
   constructor(private sentensesService: SentecesService, 
               private progressService: ProgressService, 
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private router: Router) {
     this.lessonNumber = parseInt(route.snapshot.paramMap.get('id'));
     this.progress = this.progressService.getCurrentProgress(this.lessonNumber);
     this.goalRight = Math.round(this.progress.progressArray.length * 0.95 - 1);
@@ -110,5 +111,9 @@ export class TrainingComponent implements OnInit {
         this.setNewSentence(sentence);
       });
     }
+  }
+
+  backToLessons(): void {
+    this.router.navigate(['/lessons'])
   }
 }

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-light bg-info">
-  <a class="navbar-item" href="/lessons"><fa name="angle-left"></fa>Lesson {{lessonNumber}}</a>
+  <span class="navbar-item" (click)='backToLessons()'><fa name="angle-left"></fa>Lesson {{lessonNumber}}</span>
   <div class="navbar-item">
       Current: {{currentRight}}
   </div>
@@ -49,8 +49,8 @@
   </div>
   <app-progress [(progress)] = 'progress'></app-progress>
 </div>
-<nav class="navbar navbar-light  bg-info footer">
-  <div class="navbar-item" (click)='setNewSentence(sentence)'>
+<nav class="navbar navbar-light  bg-info footer" (click)='setNewSentence(sentence)'>
+  <div class="navbar-item">
       <fa name="undo"></fa>
   </div>
 </nav>
